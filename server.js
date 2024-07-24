@@ -24,3 +24,4 @@ app.use((req, res) => {res.status(404).json({message: 'Not an existing route'})}
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 });
+
