@@ -16,6 +16,16 @@ const getAllEntries = async (req, res) => {
 };
 
 //DELETE (DELETE)
+const deleteEntry = async (req, res) => {
+    try {
+        const deleteDoc = await db.WriderData.findByIdAndDelete(req.params.id)
+        console.log(deleteDoc)
+        res.status(200).json({ data: deleteDoc, message: 'Entry has been deleted.'})
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to delete entry', error});
+    }
+};
+
 
 
 //PUT (UPDATE)
@@ -23,7 +33,7 @@ const updateEntry = async (req, res) => {
     try {
         const updateDoc = await db.WriderData.findByIdAndUpdate(req.params.id, req.body, { new: true});
         console.log(updateDoc)
-        res.status(200).json(updateDoc)
+        res.status(200).json({ data: updateDoc, message: 'Entry has been updated.'})
     } catch (error) {
         res.status(500).json({ message: 'Failed to update entry', error});
     }
@@ -46,4 +56,4 @@ const createEntry = async (req, res) => {
 
 
 
-module.exports = { getAllEntries, createEntry, updateEntry }
+module.exports = { getAllEntries, createEntry, updateEntry, deleteEntry }
