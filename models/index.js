@@ -12,3 +12,6 @@ async function mongoConnection() {
 }
 mongoConnection();
 
+module.exports = {
+    WriderData: require('./Wrider.js')
+}
