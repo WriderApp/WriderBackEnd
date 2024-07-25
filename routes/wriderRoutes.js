@@ -16,6 +16,8 @@ router.post('/', wriderCtrl.createEntry);
 //Route for updating entries using their id
 router.put('/:id', wriderCtrl.updateEntry);
 
+//Route for deleteing entries using their id
+router.delete('/:id', wriderCtrl.deleteEntry);
 
 
 
