@@ -19,6 +19,15 @@ const getAllEntries = async (req, res) => {
 
 
 //PUT (UPDATE)
+const updateEntry = async (req, res) => {
+    try {
+        const updateDoc = await db.WriderData.findByIdAndUpdate(req.params.id, req.body, { new: true});
+        console.log(updateDoc)
+        res.status(200).json(updateDoc)
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to update entry', error});
+    }
+};
 
 
 //POST (CREATE)
@@ -37,4 +46,4 @@ const createEntry = async (req, res) => {
 
 
 
-module.exports = { getAllEntries, createEntry }
+module.exports = { getAllEntries, createEntry, updateEntry }
