@@ -13,6 +13,9 @@ router.get('/', wriderCtrl.getAllEntries);
 //Route for posting new entry to the index, from a form
 router.post('/', wriderCtrl.createEntry);
 
+//Route for updating entries using their id
+router.put('/:id', wriderCtrl.updateEntry);
+
 
 
 
