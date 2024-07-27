@@ -54,6 +54,16 @@ const createEntry = async (req, res) => {
     }
 };
 
+//GET (SHOW) - Show One Entry
+const showEntry = async (req, res) => {
+    try {
+        const oneEntry = await db.WriderData.findById(req.params.id);
+        res.status(200).json(oneEntry);
+    } catch (error) {
+        res.status(500).json({ message: `Failed to show entry ${req.params.title}`, error})
+    }
+};
 
 
-module.exports = { getAllEntries, createEntry, updateEntry, deleteEntry }
+
+module.exports = { getAllEntries, createEntry, updateEntry, deleteEntry, showEntry }

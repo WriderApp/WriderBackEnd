@@ -10,6 +10,9 @@ const { wriderCtrl } = require('../controllers');
 //Index of all entries
 router.get('/', wriderCtrl.getAllEntries);
 
+//Show one entry
+router.get('/:id', wriderCtrl.showEntry);
+
 //Route for posting new entry to the index, from a form
 router.post('/', wriderCtrl.createEntry);
 
