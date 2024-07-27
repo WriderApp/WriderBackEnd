@@ -4,7 +4,11 @@ const mongoose = require('mongoose');
 const WriderSchema = new mongoose.Schema({
     user: String,
     title: String,
-    type: String,
+    docType: {
+        type: String,
+        enum: ['journal', 'manuscript', 'moodBoard'],
+        require: true,
+    },
     date: Date,
     body: {type: String, required: true},
     favorites: {type: Boolean, default: false},
