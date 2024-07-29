@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const mainApp = require('./routes');
+const quoteDatabase = require('./routes');
 const { port } = process.env;
 
 // =========> MIDDLEWARE <========= //
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // });
 
 app.use('/', mainApp);
+app.use('/database', quoteDatabase);
 
 app.use((req, res) => {res.status(404).json({message: 'Not an existing route'})})
 
