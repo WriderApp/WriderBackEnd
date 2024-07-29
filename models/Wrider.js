@@ -7,9 +7,10 @@ const WriderSchema = new mongoose.Schema({
     docType: {
         type: String,
         enum: ['journal', 'manuscript', 'moodBoard'],
-        require: true,
-    },
-    date: Date,
+        require: true},
+    date: {
+        type: Date,
+        default: Date.now},
     body: {type: String, required: true},
     favorites: {type: Boolean, default: false},
 }, { timestamps: true })
