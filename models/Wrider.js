@@ -16,7 +16,8 @@ const WriderSchema = new mongoose.Schema({
     rating: {
         type: Number,
         min: 0,
-        max: 5,
+        max: 6,
+        default: 6
     },
     favorites: {type: Boolean, default: false},
 }, { timestamps: true })
