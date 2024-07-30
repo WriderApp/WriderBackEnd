@@ -9,7 +9,7 @@ const getAllEntries = async (req, res) => {
         //Log all entries
         console.log(entries)
         //Send entries as JSON res to client
-        res.status(200).json({ message: 'Collection of entries', entries });
+        res.status(200).json(entries);
     } catch (error) {
         res.status(500).json({ message: 'Failed to fetch entries', error });
     }
@@ -20,7 +20,7 @@ const deleteEntry = async (req, res) => {
     try {
         const deleteDoc = await db.WriderData.findByIdAndDelete(req.params.id)
         console.log(deleteDoc)
-        res.status(200).json({ message: 'Entry has been deleted.', deleteDoc });
+        res.status(200).json(deleteDoc);
     } catch (error) {
         res.status(500).json({ message: 'Failed to delete entry', error });
     }
@@ -33,7 +33,7 @@ const updateEntry = async (req, res) => {
     try {
         const updateDoc = await db.WriderData.findByIdAndUpdate(req.params.id, req.body, { new: true});
         console.log(updateDoc)
-        res.status(200).json({ message: 'Entry has been updated.', updateDoc });
+        res.status(200).json(updateDoc);
     } catch (error) {
         res.status(500).json({ message: 'Failed to update entry', error });
     }
@@ -48,7 +48,7 @@ const createEntry = async (req, res) => {
         //log new entry
         // console.log(newEntry)
         //Send new entry as JSON response to client
-        res.status(200).json({ message: 'Created entry', newEntry });
+        res.status(200).json(newEntry);
     } catch (error) {
         res.status(500).json({ message: 'Failed to create entry', error });
     }
@@ -58,7 +58,7 @@ const createEntry = async (req, res) => {
 const showEntry = async (req, res) => {
     try {
         const oneEntry = await db.WriderData.findById(req.params.id);
-        res.status(200).json({ message: 'Showing single entry', oneEntry });
+        res.status(200).json(oneEntry);
     } catch (error) {
         res.status(500).json({ message: `Failed to show entry`, error })
     }
