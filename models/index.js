@@ -13,5 +13,6 @@ async function mongoConnection() {
 mongoConnection();
 
 module.exports = {
-    WriderData: require('./Wrider.js')
+    WriderData: require('./Wrider.js'),
+    QuoteData: require('./Quote.js')
 }

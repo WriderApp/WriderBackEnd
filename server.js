@@ -4,7 +4,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const routes = require('./routes');
+const mainApp = require('./routes');
+const quoteDatabase = require('./routes');
 const { port } = process.env;
 
 // =========> MIDDLEWARE <========= //
@@ -17,7 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 //     res.send('Wrider App')
 // });
 
-app.use('/', routes);
+app.use('/', mainApp);
+app.use('/database', quoteDatabase);
+
 app.use((req, res) => {res.status(404).json({message: 'Not an existing route'})})
 
 // =========> EXPRESS SERVER <========= //

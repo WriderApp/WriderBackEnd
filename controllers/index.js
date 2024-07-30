@@ -7,4 +7,5 @@ Export all functions from ./wriderCtrls.js to be used elsewhere using 'wriderCtr
 
 module.exports = {
     wriderCtrl: require('./wriderCtrls'),
+    quoteCtrl: require('./quoteCtrls')
 }
